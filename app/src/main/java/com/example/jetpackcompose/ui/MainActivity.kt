@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -24,9 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetpackcompose.ui.theme.GoogleButton
-import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
-import com.example.jetpackcompose.ui.theme.Shapes
+import com.example.jetpackcompose.ui.theme.*
 
 
 class MainActivity : ComponentActivity() {
@@ -43,7 +42,15 @@ class MainActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally ,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    PasswordField()
+                    GradientButton(
+                        text = "click me",
+                        textColor = Color.Red,
+                        gradient = Brush.horizontalGradient(
+                            colors = listOf(Color1 , Color2)
+                        )
+                    ) {
+
+                    }
                 }
             }
         }
