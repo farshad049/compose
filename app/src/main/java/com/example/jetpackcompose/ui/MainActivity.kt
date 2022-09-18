@@ -1,10 +1,15 @@
 package com.example.jetpackcompose.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.MaterialTheme
@@ -25,32 +30,46 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jetpackcompose.ui.lazyColumn.PersonItem
+import com.example.jetpackcompose.ui.lazyColumn.model.PersonRepository
 import com.example.jetpackcompose.ui.theme.*
 
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             JetpackComposeTheme {
-                // A surface container using the 'background' color from the theme
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colors.background)
-                        .padding(12.dp) ,
-                    horizontalAlignment = Alignment.CenterHorizontally ,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    GradientButton(
-                        text = "click me",
-                        textColor = Color.Red,
-                        gradient = Brush.horizontalGradient(
-                            colors = listOf(Color1 , Color2)
-                        )
-                    ) {
+                val headersList = listOf("A" , "B" , "C" , "D" , "E" , "F" , "G")
+
+                LazyColumn(
+                    //padding for the whole recyclerview
+                    contentPadding = PaddingValues(all = 12.dp) ,
+                    //padding between each item in recyclerview
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ){
+                    headersList.forEach { header->
+                        stickyHeader {
+                            Text(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(Color.LightGray)
+                                    .padding(12.dp) ,
+
+                                text = "section $header"
+                            )
+                        }
+                        items(10){
+                            Text(
+                                modifier = Modifier
+                                    .padding(12.dp) ,
+                                text = "item $it from section $header"
+                            )
+                        }
 
                     }
+
                 }
             }
         }
@@ -62,71 +81,11 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Composable
-fun customText(){
-    Text(
-        buildAnnotatedString {
-
-                withStyle(
-                    style =SpanStyle(
-                        color = MaterialTheme.colors.primary,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                ){
-                    append("F")
-                }
-                append("a")
-                append("r")
-                append("s")
-                append("h")
-                append("a")
-                append("d")
 
 
-        },Modifier.width(200.dp)
-    )
-}
 
-@Composable
-fun customText2(){
-        Text(text = "hello farshad".repeat(20) , maxLines = 2 , overflow = TextOverflow.Ellipsis)
-}
 
-@Composable
-fun customText3(){
-    SelectionContainer() {
-        Column() {
-            Text(text = "googooli")
-            DisableSelection {
-                Text(text = "googooli")
-            }
-            Text(text = "googooli")
-        }
-    }
-}
 
-@Composable
-fun SuperScriptText(
-    normalText:String ,
-    superScript:String ,
-    normalTextFontSize : TextUnit = 20.sp ,
-    superScriptTextSize :TextUnit = 12.sp
-){
-    Text(buildAnnotatedString {
-        withStyle(
-            style = SpanStyle(fontSize = normalTextFontSize , fontWeight = FontWeight.Bold)
-        ){
-            append(normalText)
-        }
-
-        withStyle(
-            style = SpanStyle(fontSize = superScriptTextSize, baselineShift = BaselineShift.Subscript)
-        ){
-            append(superScript)
-        }
-    })
-}
 
 
 @Composable
