@@ -16,10 +16,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 
 
 @Composable
-fun PasswordField(){
+fun PasswordField(outCome: (String) -> Unit){
     var password by rememberSaveable { mutableStateOf("")}
     var passwordVisibility by rememberSaveable { mutableStateOf(false)}
 
@@ -30,9 +31,16 @@ fun PasswordField(){
     }
 
 
+
+
+
+
     OutlinedTextField(
         value = password ,
-        onValueChange = {password = it } ,
+        onValueChange = {
+            password = it
+            outCome(password)
+                        } ,
         placeholder = { Text(text = "password")} ,
         label = { Text(text = "password")} ,
         trailingIcon = {
@@ -61,7 +69,7 @@ fun PasswordField(){
 
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 fun PasswordFieldPreview(){
-    PasswordField()
+    PasswordField(outCome = {})
 }

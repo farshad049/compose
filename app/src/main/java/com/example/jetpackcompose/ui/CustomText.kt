@@ -13,6 +13,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -58,4 +59,16 @@ fun customText3(){
             Text(text = "googooli")
         }
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun CustomTextPreview(){
+    Column() {
+        customText()
+        customText2()
+        customText3()
+    }
+
 }
