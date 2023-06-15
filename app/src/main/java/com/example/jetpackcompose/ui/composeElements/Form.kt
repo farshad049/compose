@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.ui
+package com.example.jetpackcompose.ui.composeElements
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column

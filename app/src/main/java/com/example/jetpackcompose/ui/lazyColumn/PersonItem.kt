@@ -33,7 +33,7 @@ fun PersonItem(person : PersonModel){
     ) {
 
         Text(
-            text = "${person.age}" ,
+            text = "${person.age}",
             color = Color.Black ,
             fontSize = Typography.h4.fontSize ,
             fontWeight = FontWeight.Bold
@@ -52,12 +52,6 @@ fun PersonItem(person : PersonModel){
         )
 
     }
-
-}
-
-
-@Composable
-fun PersonItemWithHeader(){
 
 }
 
@@ -82,10 +76,19 @@ fun PersonItemPreview(){
             //padding between each item in recyclerview
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ){
-            items(items = getAllData){ item->
+
+
+            //use it in nromar cases
+            items(
+                items = getAllData,
+                key = {it.id}
+            ){ item->
                 PersonItem(person = item)
             }
 
+
+
+            //use it when you need to have access to item index
             itemsIndexed(
                 items = getAllData ,
                 key = { index, item ->
@@ -95,21 +98,25 @@ fun PersonItemPreview(){
                 Log.d("mainActivity" , index.toString())
                 PersonItem(person = item)
             }
+
+
+
         }
-
     }
-
 }
 
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-@Preview
+@Preview(showBackground = true)
 fun PersonItemWithHeaderPreview(){
     JetpackComposeTheme{
 
-        val headers = listOf("A" , "B" , "C" , "D" , "E" , "F" , "G")
+
+
+        val personRepository = PersonRepository()
+        val getAllData = personRepository.getAllData()
 
         LazyColumn(
             //padding for the whole recyclerview
@@ -117,6 +124,33 @@ fun PersonItemWithHeaderPreview(){
             //padding between each item in recyclerview
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ){
+            getAllData.groupBy { it.firstName.first() }.forEach { (FirstCharacter, personModels) ->
+                stickyHeader {
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.LightGray)
+                            .padding(12.dp),
+                        text = "section $FirstCharacter"
+                    )
+                }
+                items(personModels){
+                    Text(
+                        modifier = Modifier
+                            .padding(12.dp) ,
+                        text = it.firstName
+                    )
+                }
+
+            }
+
+
+
+
+
+
+            val headers = listOf("A" , "B" , "C" , "D" , "E" , "F" , "G")
+
             headers.forEach { header->
                 stickyHeader {
                     Text(
@@ -124,8 +158,7 @@ fun PersonItemWithHeaderPreview(){
                             .fillMaxWidth()
                             .background(Color.LightGray)
                             .padding(12.dp) ,
-
-                        text = "section $headers"
+                        text = "section $header"
                     )
                 }
                 items(10){
@@ -137,6 +170,9 @@ fun PersonItemWithHeaderPreview(){
                 }
 
             }
+
+
+
 
         }
 

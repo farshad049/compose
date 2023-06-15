@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.ui
+package com.example.jetpackcompose.ui.composeElements
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -12,7 +12,6 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.input.ImeAction
@@ -21,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 
 @Composable
-fun TextField(outCome: (String)-> Unit){
+fun TextField( outPut: (String)-> Unit){
     var text by rememberSaveable { mutableStateOf("") }
 
 
@@ -29,8 +28,8 @@ fun TextField(outCome: (String)-> Unit){
     OutlinedTextField(
         value = text,
         onValueChange = {
-            text = it
-            outCome(text)
+            if (it.length < 10) text = it
+            outPut(text)
                         } ,
         placeholder = { Text(text = "type here...")} ,
         label = { Text(text = "name")} ,
@@ -54,6 +53,7 @@ fun TextField(outCome: (String)-> Unit){
         )
 
     )
+
 
 }
 

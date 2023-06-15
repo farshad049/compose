@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.ui
+package com.example.jetpackcompose.ui.composeElements
 
 
 import androidx.compose.foundation.text.KeyboardOptions
@@ -16,11 +16,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 
 
 @Composable
-fun PasswordField(outCome: (String) -> Unit){
+fun PasswordField(outPut: (String) -> Unit){
     var password by rememberSaveable { mutableStateOf("")}
     var passwordVisibility by rememberSaveable { mutableStateOf(false)}
 
@@ -39,7 +38,7 @@ fun PasswordField(outCome: (String) -> Unit){
         value = password ,
         onValueChange = {
             password = it
-            outCome(password)
+            outPut(password)
                         } ,
         placeholder = { Text(text = "password")} ,
         label = { Text(text = "password")} ,
@@ -71,5 +70,5 @@ fun PasswordField(outCome: (String) -> Unit){
 @Composable
 @Preview(showBackground = true)
 fun PasswordFieldPreview(){
-    PasswordField(outCome = {})
+    PasswordField(outPut = {})
 }

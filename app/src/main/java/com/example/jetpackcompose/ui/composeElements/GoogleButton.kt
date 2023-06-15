@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.ui.theme
+package com.example.jetpackcompose.ui.composeElements
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -15,16 +15,17 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcompose.ui.theme.Shapes
 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun GoogleButton(
-    text : String = "Sign Up With Google" ,
-    loadingText : String = "Creating Account..." ,
-    icon : Painter = painterResource(id = com.example.jetpackcompose.R.drawable.google_icon) ,
-    shape : Shape = Shapes.medium ,
-    backgroundColor : Color = MaterialTheme.colors.surface ,
+    text : String = "Sign Up With Google",
+    loadingText : String = "Creating Account...",
+    icon : Painter = painterResource(id = com.example.jetpackcompose.R.drawable.google_icon),
+    shape : Shape = Shapes.medium,
+    backgroundColor : Color = MaterialTheme.colors.surface,
     onClick : () -> Unit
 ){
     var clicked by remember { mutableStateOf(false) }

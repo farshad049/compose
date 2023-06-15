@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.ui
+package com.example.jetpackcompose.ui.composeElements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
