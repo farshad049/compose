@@ -1,10 +1,9 @@
 package com.example.jetpackcompose.ui.navigation
 
-const val DETAIL_SCREEN_KEY = "id"
-const val DETAIL_SCREEN_KEY2 = "name"
-
-const val SEARCH_SCREEN_KEY = "id"
-const val SEARCH_SCREEN_KEY2 = "name"
+import com.example.jetpackcompose.ui.Constants.DETAIL_SCREEN_KEY
+import com.example.jetpackcompose.ui.Constants.DETAIL_SCREEN_KEY2
+import com.example.jetpackcompose.ui.Constants.SEARCH_SCREEN_KEY
+import com.example.jetpackcompose.ui.Constants.SEARCH_SCREEN_KEY2
 
 
 sealed class Screens(val route: String){
@@ -32,6 +31,11 @@ sealed class Screens(val route: String){
             return "search_screen?id=$id&name=$name"
         }
     }
+
+
+
+    object Login: Screens(route = "login_screen")
+    object Signup: Screens(route = "signup_screen")
 
 
 }

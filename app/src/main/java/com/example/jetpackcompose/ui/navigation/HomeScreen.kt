@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpackcompose.ui.Constants.AUTH_GRAPH
 
 @Composable
 fun HomeScreen(
@@ -26,11 +27,15 @@ fun HomeScreen(
     ) {
         Column() {
             Text(
+                text = "home screen",
+                fontSize = MaterialTheme.typography.h4.fontSize
+            )
+            Text(
                 modifier = Modifier
                     .clickable {
                         navController.navigate(Screens.Detail.passNameAndId(id = 1, name = "farshad"))
                     },
-                text = "go to detail screen",
+                text = "detail screen",
                 fontSize = MaterialTheme.typography.h4.fontSize
 
             )
@@ -40,10 +45,32 @@ fun HomeScreen(
                     .clickable {
                         navController.navigate(Screens.Search.passIDAndName())
                     },
-                text = "go to search screen",
+                text = "search screen",
                 fontSize = MaterialTheme.typography.h4.fontSize
 
             )
+
+            Text(
+                modifier = Modifier
+                    .clickable {
+                               navController.navigate(AUTH_GRAPH)
+                    },
+                text = "login screen",
+                fontSize = MaterialTheme.typography.h4.fontSize
+
+            )
+
+            Text(
+                modifier = Modifier
+                    .clickable {
+
+                    },
+                text = "signup screen",
+                fontSize = MaterialTheme.typography.h4.fontSize
+
+            )
+
+
         }
 
 

@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcompose.ui.composeElements.ButtonIncrease
-import com.example.jetpackcompose.ui.navigation.SetupNavGraph
+import com.example.jetpackcompose.ui.navigation.navGraph.SetupNavGraph
 import com.example.jetpackcompose.ui.theme.*
 
 
