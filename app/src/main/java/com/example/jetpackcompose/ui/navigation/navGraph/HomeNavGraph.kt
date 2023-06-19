@@ -26,9 +26,7 @@ fun NavGraphBuilder.homeNavGraph(
         route = HOME_GRAPH
     ){
 
-        composable(
-            route= Screens.Home.route
-        ){
+        composable(route= Screens.Home.route){
             HomeScreen(navController= navController)
         }
 

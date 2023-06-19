@@ -7,6 +7,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpackcompose.ui.bottomNavigation.MainScreenBottomNav
 import com.example.jetpackcompose.ui.composeElements.ButtonIncrease
 import com.example.jetpackcompose.ui.navigation.navGraph.SetupNavGraph
 import com.example.jetpackcompose.ui.theme.*
@@ -14,13 +15,15 @@ import com.example.jetpackcompose.ui.theme.*
 
 class MainActivity : ComponentActivity() {
 
-    lateinit var navController: NavHostController
+    lateinit var navHostController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             JetpackComposeTheme {
-                navController= rememberNavController()
-                SetupNavGraph(navController = navController)
+//                navHostController= rememberNavController()
+//                SetupNavGraph(navController = navHostController)
+
+                MainScreenBottomNav()
 
 
             }
@@ -44,6 +47,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     JetpackComposeTheme {
-        ButtonIncrease()
+
     }
 }

@@ -18,15 +18,11 @@ fun NavGraphBuilder.authNavGraph(
         startDestination = Screens.Login.route,
         route = AUTH_GRAPH
     ){
-        composable(
-            route = Screens.Login.route
-        ){
+        composable(route = Screens.Login.route){
             LoginScreen(navController = navController)
         }
 
-        composable(
-            route = Screens.Signup.route
-        ){
+        composable(route = Screens.Signup.route){
             SignUpScreen(navController = navController)
         }
     }
