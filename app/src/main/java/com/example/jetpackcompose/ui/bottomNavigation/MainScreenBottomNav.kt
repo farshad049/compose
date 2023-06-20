@@ -1,6 +1,9 @@
 package com.example.jetpackcompose.ui.bottomNavigation
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.ContentAlpha
@@ -10,6 +13,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -25,15 +29,24 @@ fun MainScreenBottomNav(){
         bottomBar = {
             BottomBar(navHostController = navHostController)
         }
-    ) {
-        BottomNavGraph(navHostController = navHostController)
+    ) {innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = innerPadding.calculateBottomPadding())//set bottom padding for main activity in order so content could be shown without the bottom of them become clipped
+        ) {
+            BottomNavGraph(navHostController = navHostController)
+        }
+
     }
 }
 
 
 
 @Composable
-fun BottomBar(navHostController: NavHostController){
+fun BottomBar(
+    navHostController: NavHostController
+){
 
     val screens= listOf(
         BottomBarScreens.Home,
