@@ -75,6 +75,17 @@ dependencies {
 
     //navigation compose
     implementation "androidx.navigation:navigation-compose:2.6.0"
+
+
+    //shimmer
+    implementation 'com.valentinilk.shimmer:compose-shimmer:1.0.5'
+
+
+    //change bottom and status bar color in compose
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta"
+
+
+
 }
 
 

@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.valentinilk.shimmer.shimmer
 
 @Composable
 fun AnimatedShimmer(view :@Composable (brush: Brush)-> Unit) {
@@ -91,6 +92,50 @@ fun ShimmerGridItem(brush: Brush) {
                     .clip(RoundedCornerShape(10.dp))
                     .fillMaxWidth(fraction = 0.9f)
                     .background(brush)
+            )
+        }
+    }
+}
+
+
+
+@Composable
+fun EasyShimmerItem() {
+    val bachGroundColor= Color.LightGray.copy(alpha = 0.6f)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(all = 10.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Spacer(
+            modifier = Modifier
+                .size(80.dp)
+                .clip(CircleShape)
+                .shimmer()
+                .background(bachGroundColor)
+
+        )
+        Spacer(modifier = Modifier.width(10.dp))
+        Column(verticalArrangement = Arrangement.Center) {
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .fillMaxWidth(fraction = 0.7f)
+                    .shimmer()
+                    .background(bachGroundColor)
+
+            )
+            Spacer(modifier = Modifier.padding(5.dp))
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .fillMaxWidth(fraction = 0.9f)
+                    .shimmer()
+                    .background(bachGroundColor)
+
             )
         }
     }
