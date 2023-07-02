@@ -5,23 +5,23 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcompose.ui.bottomNavigation.MainScreenBottomNav
-import com.example.jetpackcompose.ui.composeElements.AnimatedShimmer
-import com.example.jetpackcompose.ui.composeElements.ButtonIncrease
-import com.example.jetpackcompose.ui.composeElements.EasyShimmerItem
-import com.example.jetpackcompose.ui.composeElements.RoundImageShape
-import com.example.jetpackcompose.ui.composeElements.ShimmerGridItem
 import com.example.jetpackcompose.ui.navigation.navGraph.SetupNavGraph
-import com.example.jetpackcompose.ui.searchWidget.MainScreenSearchWidget
-import com.example.jetpackcompose.ui.searchWidget.SearchWidgetViewModel
-import com.example.jetpackcompose.ui.splashScreen.SplashSetupNavGraph
-import com.example.jetpackcompose.ui.theme.*
+import com.example.jetpackcompose.ui.TopbarSearchWidget.SearchWidgetViewModel
+import com.example.jetpackcompose.ui.composeElements.LoadingAnimation
+import com.example.jetpackcompose.ui.composeElements.SelectableItem
+import com.example.jetpackcompose.ui.splashScreen.AnimatedSplash
+import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: SearchWidgetViewModel by viewModels()
@@ -57,7 +57,18 @@ class MainActivity : ComponentActivity() {
 //                    val navHostController = rememberNavController()
 //                    SplashSetupNavGraph(navHostController)
 
-                    EasyShimmerItem()
+//                    EasyShimmerItem()
+
+
+                    var selected by remember { mutableStateOf(false) }
+
+
+
+                    SelectableItem(
+                        title = "salam",
+                        selected = selected,
+                        onClick = {selected = !selected},
+                    )
 
 
 

@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.ui.searchWidget
+package com.example.jetpackcompose.ui.TopbarSearchWidget
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State

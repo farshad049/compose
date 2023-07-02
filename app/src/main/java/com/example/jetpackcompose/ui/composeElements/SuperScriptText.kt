@@ -7,6 +7,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
@@ -30,4 +31,13 @@ fun SuperScriptText(
             append(superScript)
         }
     })
+}
+
+@Preview
+@Composable
+fun PreviewSuperScript(){
+    SuperScriptText(
+        normalText = "hello",
+        superScript = "world"
+    )
 }
