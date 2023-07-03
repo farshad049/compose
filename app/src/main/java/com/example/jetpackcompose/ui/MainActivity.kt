@@ -20,6 +20,7 @@ import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import com.example.jetpackcompose.ui.BoxWithConstraints.BoxWithConstraintScreen
 import com.example.jetpackcompose.ui.lazyColumn.SwipeablePreview
 
 @AndroidEntryPoint
@@ -43,8 +44,8 @@ class MainActivity : ComponentActivity() {
 
 
                     //navigation
-                    navHostController= rememberNavController()
-                    SetupNavGraph(navController = navHostController)
+//                    navHostController= rememberNavController()
+//                    SetupNavGraph(navController = navHostController)
 
 
                     //bottom navigation
@@ -68,6 +69,8 @@ class MainActivity : ComponentActivity() {
 //                        selected = selected,
 //                        onClick = {selected = !selected},
 //                    )
+
+                    BoxWithConstraintScreen()
 
 
 
