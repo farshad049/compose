@@ -37,5 +37,7 @@ sealed class Screens(val route: String){
     object Login: Screens(route = "login_screen")
     object Signup: Screens(route = "signup_screen")
 
+    object Favorite: Screens(route = "favorite_screen")
+
 
 }

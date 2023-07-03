@@ -15,10 +15,14 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcompose.ui.Constants.AUTH_GRAPH
+import com.example.jetpackcompose.ui.lazyColumn.model.PersonModel
+import com.example.jetpackcompose.ui.navigation.model.FavoritePerson
+import com.example.jetpackcompose.ui.navigation.viewModel.FavoriteViewModel
 
 @Composable
 fun HomeScreen(
-    navController: NavController
+    navController: NavController,
+    shareViewModel: FavoriteViewModel
 ){
     Box(
         modifier = Modifier
@@ -70,6 +74,17 @@ fun HomeScreen(
 
             )
 
+            Text(
+                modifier = Modifier
+                    .clickable {
+                               shareViewModel.addPerson(FavoritePerson(name = "farshad", lastName = "mz"))
+                        navController.navigate(Screens.Favorite.route)
+                    },
+                text = "favorite screen",
+                fontSize = MaterialTheme.typography.h4.fontSize
+
+            )
+
 
         }
 
@@ -81,6 +96,6 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeScreen(){
-    HomeScreen(navController = rememberNavController())
+    //HomeScreen(navController = rememberNavController())
 }
 

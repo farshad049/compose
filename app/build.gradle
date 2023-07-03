@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
-    id 'kotlinx-serialization'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -101,6 +101,9 @@ dependencies {
     kapt "androidx.room:room-compiler:2.5.2"
     implementation "androidx.room:room-ktx:2.5.2"
     implementation "androidx.room:room-paging:2.5.2"
+
+    //swipe
+    implementation "me.saket.swipe:swipe:1.2.0"
 
 
 

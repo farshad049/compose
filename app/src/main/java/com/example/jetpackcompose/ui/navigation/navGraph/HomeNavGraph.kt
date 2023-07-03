@@ -1,6 +1,7 @@
 package com.example.jetpackcompose.ui.navigation.navGraph
 
 import android.util.Log
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -13,12 +14,15 @@ import com.example.jetpackcompose.ui.Constants.HOME_GRAPH
 import com.example.jetpackcompose.ui.Constants.SEARCH_SCREEN_KEY
 import com.example.jetpackcompose.ui.Constants.SEARCH_SCREEN_KEY2
 import com.example.jetpackcompose.ui.navigation.DetailScreen
+import com.example.jetpackcompose.ui.navigation.FavoriteScreen
 import com.example.jetpackcompose.ui.navigation.HomeScreen
 import com.example.jetpackcompose.ui.navigation.Screens
 import com.example.jetpackcompose.ui.navigation.SearchScreen
+import com.example.jetpackcompose.ui.navigation.viewModel.FavoriteViewModel
 
 fun NavGraphBuilder.homeNavGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    sharedViewModel: FavoriteViewModel// to pass object to favorite screen
 ){
 
     navigation(
@@ -27,7 +31,7 @@ fun NavGraphBuilder.homeNavGraph(
     ){
 
         composable(route= Screens.Home.route){
-            HomeScreen(navController= navController)
+            HomeScreen(navController= navController, sharedViewModel)
         }
 
 
@@ -63,6 +67,10 @@ fun NavGraphBuilder.homeNavGraph(
             Log.d("ARG", it.arguments?.getInt("id").toString())
             Log.d("Arg", it.arguments?.getString("name").toString())
             SearchScreen(navController = navController)
+        }
+        
+        composable(route = Screens.Favorite.route){
+            FavoriteScreen(navController,sharedViewModel)
         }
 
     }
