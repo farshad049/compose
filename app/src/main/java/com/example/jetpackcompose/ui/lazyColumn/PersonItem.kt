@@ -79,9 +79,7 @@ fun PersonItemPreview(){
 
         val personRepository = PersonRepository()
         var getAllData = personRepository.getAllData()
-        var a by remember {
-            mutableStateOf(getAllData)
-        }
+        var a by remember { mutableStateOf(getAllData) }
 
         LazyColumn(
             //padding for the whole recyclerview

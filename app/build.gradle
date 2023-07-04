@@ -105,6 +105,13 @@ dependencies {
     //swipe
     implementation "me.saket.swipe:swipe:1.2.0"
 
+    //icons
+    implementation "androidx.compose.material:material-icons-extended:$compose_ui_version"
+
+
+    // Color Picker Compose
+    implementation "com.github.skydoves:colorpicker-compose:1.0.0"
+
 
 
 

@@ -1,12 +1,16 @@
 package com.example.jetpackcompose.ui.composeElements
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -62,6 +66,7 @@ fun AnimatedShimmer(view :@Composable (brush: Brush)-> Unit) {
 
 
 
+
 @Composable
 fun ShimmerGridItem(brush: Brush) {
     Row(
@@ -101,7 +106,7 @@ fun ShimmerGridItem(brush: Brush) {
 
 @Composable
 fun EasyShimmerItem() {
-    val bachGroundColor= Color.LightGray.copy(alpha = 0.6f)
+    val backGroundColor= Color.LightGray.copy(alpha = 0.6f)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -113,7 +118,7 @@ fun EasyShimmerItem() {
                 .size(80.dp)
                 .clip(CircleShape)
                 .shimmer()
-                .background(bachGroundColor)
+                .background(backGroundColor)
 
         )
         Spacer(modifier = Modifier.width(10.dp))
@@ -124,7 +129,7 @@ fun EasyShimmerItem() {
                     .clip(RoundedCornerShape(10.dp))
                     .fillMaxWidth(fraction = 0.7f)
                     .shimmer()
-                    .background(bachGroundColor)
+                    .background(backGroundColor)
 
             )
             Spacer(modifier = Modifier.padding(5.dp))
@@ -134,7 +139,7 @@ fun EasyShimmerItem() {
                     .clip(RoundedCornerShape(10.dp))
                     .fillMaxWidth(fraction = 0.9f)
                     .shimmer()
-                    .background(bachGroundColor)
+                    .background(backGroundColor)
 
             )
         }

@@ -74,7 +74,7 @@ fun SwipeableItem(
 
 
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
 @Preview
 fun SwipeablePreview(){
