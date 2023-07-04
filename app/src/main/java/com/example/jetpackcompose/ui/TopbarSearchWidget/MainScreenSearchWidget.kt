@@ -41,6 +41,7 @@ fun MainScreenSearchWidget(viewModel: SearchWidgetViewModel){
     val searchTextState by viewModel.searchTextState
 
     Scaffold(
+        modifier = Modifier,
         topBar = {
             MainAppBar(
                 searchWidgetState = searchWidgetState,
