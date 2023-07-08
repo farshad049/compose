@@ -2,6 +2,7 @@ package com.example.jetpackcompose.ui.composeElements
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
@@ -23,7 +24,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -107,6 +110,58 @@ fun ShimmerGridItem(brush: Brush) {
 @Composable
 fun EasyShimmerItem() {
     val backGroundColor= Color.LightGray.copy(alpha = 0.6f)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(all = 10.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Spacer(
+            modifier = Modifier
+                .size(80.dp)
+                .clip(CircleShape)
+                .shimmer()
+                .background(backGroundColor)
+
+        )
+        Spacer(modifier = Modifier.width(10.dp))
+        Column(verticalArrangement = Arrangement.Center) {
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .fillMaxWidth(fraction = 0.7f)
+                    .shimmer()
+                    .background(backGroundColor)
+
+            )
+            Spacer(modifier = Modifier.padding(5.dp))
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .fillMaxWidth(fraction = 0.9f)
+                    .shimmer()
+                    .background(backGroundColor)
+
+            )
+        }
+    }
+}
+
+
+@Composable
+fun FadeInShimmer(){
+    val infiniteTransition = rememberInfiniteTransition()
+    val backGroundColor by infiniteTransition.animateColor(
+        initialValue = MaterialTheme.colors.primary,
+        targetValue = Color.Gray,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 1000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
+
     Row(
         modifier = Modifier
             .fillMaxWidth()

@@ -22,6 +22,12 @@ import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import com.example.jetpackcompose.ui.animatedBottomBar.AnimatedBottomBarScreen
+import com.example.jetpackcompose.ui.composeElements.DarkAndLightThemeSwitcher
+import com.example.jetpackcompose.ui.composeElements.EasyShimmerItem
+import com.example.jetpackcompose.ui.composeElements.FadeInShimmer
+import com.example.jetpackcompose.ui.composeElements.LottieAnimationScreen
+import com.example.jetpackcompose.ui.composeElements.MarqueeEffect
 import com.example.jetpackcompose.ui.composeElements.PhotoPickerScreen
 import com.example.jetpackcompose.ui.lazyColumn.ScrollDetector
 
@@ -34,8 +40,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetpackComposeTheme {
+          //  var darkTheme by remember { mutableStateOf(false) }
+            JetpackComposeTheme(
+                //darkTheme = darkTheme
+            ) {
                 Column() {
+
+//                    DarkAndLightThemeSwitcher(
+//                        darkTheme= darkTheme,
+//                        onThemeUpdated = {darkTheme = !darkTheme}
+//                    )
 
                     //shimmer
 //                    AnimatedShimmer {brush->
@@ -61,7 +75,7 @@ class MainActivity : ComponentActivity() {
 //                    val navHostController = rememberNavController()
 //                    SplashSetupNavGraph(navHostController)
 
-//                    EasyShimmerItem()
+                    //EasyShimmerItem()
 
 
                     //selectable Item
@@ -71,6 +85,16 @@ class MainActivity : ComponentActivity() {
 //                        selected = selected,
 //                        onClick = {selected = !selected},
 //                    )
+
+
+
+
+
+
+                    AnimatedBottomBarScreen()
+
+
+
 
 
 
