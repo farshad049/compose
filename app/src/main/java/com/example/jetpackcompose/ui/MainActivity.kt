@@ -23,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import com.example.jetpackcompose.ui.animatedBottomBar.AnimatedBottomBarScreen
+import com.example.jetpackcompose.ui.composeElements.AnimatedGallery
 import com.example.jetpackcompose.ui.composeElements.DarkAndLightThemeSwitcher
 import com.example.jetpackcompose.ui.composeElements.EasyShimmerItem
 import com.example.jetpackcompose.ui.composeElements.FadeInShimmer
@@ -91,7 +92,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-                    AnimatedBottomBarScreen()
+                    AnimatedGallery()
 
 
 
