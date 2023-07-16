@@ -16,6 +16,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
 
 @Composable
 fun customText(){
@@ -24,7 +25,7 @@ fun customText(){
 
             withStyle(
                 style = SpanStyle(
-                    color = MaterialTheme.colors.primary,
+                    color = MaterialTheme.colors.secondary,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -65,10 +66,11 @@ fun customText3(){
 @Preview(showBackground = true)
 @Composable
 fun CustomTextPreview(){
-    Column() {
-        customText()
-        customText2()
-        customText3()
+    JetpackComposeTheme{
+        Column() {
+            customText()
+            customText2()
+            customText3()
+        }
     }
-
 }

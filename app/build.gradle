@@ -123,6 +123,13 @@ dependencies {
     implementation("com.exyte:animated-navigation-bar:1.0.0")
 
 
+    //pager
+    implementation "com.google.accompanist:accompanist-pager:0.23.1"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.23.1"
+
+
+
+
 
 
 

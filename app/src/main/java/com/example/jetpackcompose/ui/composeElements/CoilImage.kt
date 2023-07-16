@@ -82,9 +82,7 @@ fun CoilImage2(imageUrl: String){
             }
 
         }
-
     }
-
 }
 
 

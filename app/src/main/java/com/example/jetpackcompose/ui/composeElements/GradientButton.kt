@@ -57,7 +57,8 @@ fun GradientButtonPreview(){
         text = "click me",
         textColor = Color.Red,
         gradient = Brush.horizontalGradient(
-            colors = listOf(Color1 , Color2)
+            colors = listOf(Color1 , Color2),
+
         )
     ) {
 
